@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Какая тыковка ваш ребёнок? — Умняшки</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #493425;
+  background:
+    radial-gradient(circle at top left, #fff8dd 0, transparent 35%),
+    linear-gradient(145deg, #fff4dc, #ffdcae);
+}
+
+.app {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 18px 14px 50px;
+}
+
+.card {
+  background: rgba(255,255,255,.96);
+  border-radius: 28px;
+  padding: 30px 21px;
+  margin-top: 18px;
+  box-shadow: 0 14px 40px rgba(112,72,31,.14);
+  text-align: center;
+}
+
+.brand {
+  color: #ad652e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .7px;
+  line-height: 1.4;
+}
+
+.pumpkin {
+  font-size: 74px;
+  margin: 16px 0 4px;
+}
+
+h1 {
+  margin: 12px 0 16px;
+  font-size: 29px;
+  line-height: 1.15;
+}
+
+h2 {
+  margin: 12px 0 16px;
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.small {
+  margin-top: 11px;
+  color: #8c7564;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+button,
+.messenger {
+  width: 100%;
+  margin: 7px 0;
+  padding: 16px 17px;
+  border: 0;
+  border-radius: 17px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover,
+.messenger:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  color: white;
+  background: #e77828;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 7px 18px rgba(231,120,40,.25);
+}
+
+.answer {
+  color: #493425;
+  background: #fff7eb;
+  border: 1px solid #f0d8b9;
+  text-align: left;
+}
+
+.answer:hover {
+  background: #ffecd3;
+}
+
+.progress {
+  height: 8px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  background: #f2dec5;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: #e77828;
+  transition: .3s;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  color: #ae5a1c;
+  background: #fff0dc;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result-box {
+  margin: 18px 0;
+  padding: 19px;
+  background: #fff5e7;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.forecast {
+  margin: 18px 0;
+  padding: 20px;
+  background: #f7f0db;
+  border-radius: 20px;
+}
+
+.surprise {
+  margin-top: 25px;
+  padding: 24px 18px;
+  background: linear-gradient(145deg,#fff0c4,#ffdda1);
+  border-radius: 23px;
+}
+
+.messenger {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.max {
+  color: white;
+  background: #6757ef;
+  font-size: 18px;
+  box-shadow: 0 7px 18px rgba(103,87,239,.22);
+}
+
+.whatsapp {
+  color: white;
+  background: #25D366;
+}
+
+.secondary-label {
+  margin: 17px 0 5px;
+  color: #856d5a;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+.footer {
+  margin-top: 24px;
+  color: #947c69;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 21px; }
+  p { font-size: 16px; }
+  .card { padding: 25px 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- СТАРТОВЫЙ ЭКРАН -->
+
+<section id="start" class="card">
+
+  <div class="brand">
+    ДЕТСКИЙ РАЗВИВАЮЩИЙ ЦЕНТР «УМНЯШКИ»
+  </div>
+
+  <div class="pumpkin">🎃</div>
+
+  <h1>Какая тыковка ваш ребёнок этой осенью?</h1>
+
+  <p>
+    Маленький волшебник, любопытный исследователь,
+    неугомонный энерджайзер или творец?
+  </p>
+
+  <p>
+    Ответьте всего на <strong>4 коротких вопроса</strong>
+    и получите персональный осенний прогноз для вашего ребёнка.
+  </p>
+
+  <p>
+    А в конце теста вас ждёт
+    <strong>небольшой сюрприз для ребёнка 🎁</strong>
+  </p>
+
+  <button class="primary" onclick="showAge()">
+    Узнать свою тыковку →
+  </button>
+
+  <div class="small">
+    Это займёт около 1 минуты
+  </div>
+
+</section>
+
+
+<!-- ВОЗРАСТ -->
+
+<section id="age" class="card hidden">
+
+  <div class="pumpkin">🍂</div>
+
+  <h2>Для начала познакомимся</h2>
+
+  <p>
+    Сколько лет вашей маленькой тыковке?
+  </p>
+
+  <button class="answer"
+          onclick="chooseAge('1–3 года')">
+    🧸 1–3 года
+  </button>
+
+  <button class="answer"
+          onclick="chooseAge('4–6 лет')">
+    🎨 4–6 лет
+  </button>
+
+  <button class="answer"
+          onclick="chooseAge('7–10 лет')">
+    🔎 7–10 лет
+  </button>
+
+</section>
+
+
+<!-- ТЕСТ -->
+
+<section id="quiz" class="card hidden">
+
+  <div class="progress">
+    <div id="progress" class="progress-bar"></div>
+  </div>
+
+  <div id="counter" class="small"></div>
+
+  <h2 id="question"></h2>
+
+  <div id="answers"></div>
+
+</section>
+
+
+<!-- РЕЗУЛЬТАТ -->
+
+<section id="result" class="card hidden">
+
+  <div id="resultEmoji" class="pumpkin"></div>
+
+  <div class="badge">
+    Ваш результат
+  </div>
+
+  <h1 id="resultTitle"></h1>
+
+  <div class="result-box">
+    <p id="resultText"></p>
+  </div>
+
+  <div class="forecast">
+
+    <h2>🍂 Осенний прогноз</h2>
+
+    <p id="forecastText"></p>
+
+  </div>
+
+
+  <!-- ГЛАВНЫЙ CTA -->
+
+  <div class="surprise">
+
+    <div style="font-size:55px">🎁</div>
+
+    <h2>А вот и обещанный сюрприз!</h2>
+
+    <p>
+      В детском развивающем центре
+      <strong>«Умняшки»</strong>
+      мы приготовили для вашего ребёнка
+      <strong>тёплый осенний подарок.</strong>
+    </p>
+
+    <p>
+      Хотите его получить?
+    </p>
+
+    <p>
+      Напишите нам в MAX —
+      администратор забронирует подарок
+      за вашим ребёнком и расскажет,
+      как его забрать.
+    </p>
+
+    <a
+      class="messenger max"
+      href="https://max.ru/u/f9LHodD0cOIhkRfeC_Mmv4hCwL5rsjJ52kLqogxBd9VVWWRjrP2WVFtXUZk"
+      target="_blank">
+      🎁 Написать в MAX
+    </a>
+
+    <div class="secondary-label">
+      Если вам удобнее WhatsApp:
+    </div>
+
+    <a
+      id="whatsapp"
+      class="messenger whatsapp"
+      target="_blank">
+      Написать в WhatsApp
+    </a>
+
+    <div class="small">
+      Подарок можно получить лично
+      в детском развивающем центре «Умняшки».
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="footer">
+  Детский развивающий центр «Умняшки»
+</div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   НАСТРОЙКИ
+========================================== */
+
+const WHATSAPP_PHONE = "79186995333";
+
+
+/* ==========================================
+   6 ТЫКВОК
+========================================== */
+
+const TYPES = {
+
+  wizard: {
+    name: "Тыква-волшебник",
+    emoji: "✨🎃",
+
+    text:
+      "Сегодня вашему ребёнку особенно близок мир фантазии. " +
+      "Он может придумывать истории, превращать обычные вещи " +
+      "в необычные и создавать собственные маленькие миры.",
+
+    forecast:
+      "Этой осенью вашему волшебнику особенно понравятся " +
+      "истории, сюжетные игры и задания, где можно фантазировать, " +
+      "придумывать и находить необычные решения."
+  },
+
+
+  explorer: {
+    name: "Тыква-исследователь",
+    emoji: "🔎🎃",
+
+    text:
+      "Кажется, рядом с вами растёт человек, которому очень важно " +
+      "узнать: «Почему?», «Как это работает?» и " +
+      "«А что будет, если попробовать?».",
+
+    forecast:
+      "Этой осенью вашему исследователю особенно понравятся " +
+      "маленькие открытия, загадки и задания, где ответ можно " +
+      "не просто услышать, а найти самостоятельно."
+  },
+
+
+  energizer: {
+    name: "Тыква-энерджайзер",
+    emoji: "⚡🎃",
+
+    text:
+      "Сегодня энергии хоть отбавляй! Двигаться, смеяться, " +
+      "играть и постоянно что-нибудь делать — " +
+      "вот настроение вашей тыковки.",
+
+    forecast:
+      "Этой осенью вашему энерджайзеру могут особенно понравиться " +
+      "игры, где можно двигаться, искать, выполнять небольшие " +
+      "задания и быстро переключаться."
+  },
+
+
+  creator: {
+    name: "Тыква-творец",
+    emoji: "🎨🎃",
+
+    text:
+      "Сегодня вашей тыковке хочется создавать что-нибудь своё: " +
+      "рисовать, строить, мастерить, смешивать идеи и придумывать.",
+
+    forecast:
+      "Этой осенью предложите вашему творцу занятие, " +
+      "после которого останется настоящий результат, " +
+      "созданный своими руками."
+  },
+
+
+  capricious: {
+    name: "Тыква-капризуля",
+    emoji: "🌪️🎃",
+
+    text:
+      "Сегодня настроение вашей тыковки может меняться быстрее " +
+      "осенней погоды: сейчас хочется одного, " +
+      "а через минуту — уже совсем другого.",
+
+    forecast:
+      "Сегодня могут особенно хорошо сработать маленькие выборы: " +
+      "предложите ребёнку два понятных варианта " +
+      "и дайте самому решить, с чего начать."
+  },
+
+
+  sad: {
+    name: "Тыква-грустинка",
+    emoji: "💛🎃",
+
+    text:
+      "Похоже, сегодня вашей тыковке хочется чуть меньше суеты " +
+      "и чуть больше спокойствия, внимания и тепла.",
+
+    forecast:
+      "Иногда лучший осенний план — уютное занятие рядом со взрослым. " +
+      "Совместная игра и немного внимания сегодня могут оказаться " +
+      "приятнее самой насыщенной программы."
+  }
+
+};
+
+
+/* ==========================================
+   ВОПРОСЫ
+========================================== */
+
+const QUESTIONS = [
+
+{
+  question:
+    "Что сегодня больше всего похоже на вашего ребёнка?",
+
+  answers: [
+    ["✨ Придумывает истории и фантазирует", "wizard"],
+    ["🔎 Хочет всё рассмотреть и узнать", "explorer"],
+    ["⚡ Постоянно куда-то бежит и что-то делает", "energizer"],
+    ["🎨 Рисует, строит или мастерит", "creator"],
+    ["🌪️ То хочет, то уже передумал", "capricious"],
+    ["💛 Хочет побыть рядом и немного отдохнуть", "sad"]
+  ]
+},
+
+{
+  question:
+    "Когда появляется что-то новое, ребёнок скорее...",
+
+  answers: [
+    ["✨ Придумает, во что это можно превратить", "wizard"],
+    ["🔎 Начнёт рассматривать и задавать вопросы", "explorer"],
+    ["⚡ Сразу захочет попробовать", "energizer"],
+    ["🎨 Захочет сделать с этим что-нибудь своё", "creator"],
+    ["🌪️ Может сначала сказать «не хочу»", "capricious"],
+    ["💛 Сначала посмотрит рядом со взрослым", "sad"]
+  ]
+},
+
+{
+  question:
+    "Какое занятие обычно увлекает ребёнка сильнее?",
+
+  answers: [
+    ["✨ Где есть история и воображение", "wizard"],
+    ["🔎 Где нужно найти, понять или разгадать", "explorer"],
+    ["⚡ Где можно двигаться и действовать", "energizer"],
+    ["🎨 Где можно что-нибудь создать", "creator"],
+    ["🌪️ Где можно самому выбирать", "capricious"],
+    ["💛 Где можно спокойно заниматься вместе", "sad"]
+  ]
+},
+
+{
+  question:
+    "И последний вопрос: какая ваша тыковка именно сегодня?",
+
+  answers: [
+    ["✨ Мечтательная", "wizard"],
+    ["🔎 Любопытная", "explorer"],
+    ["⚡ Неугомонная", "energizer"],
+    ["🎨 Творческая", "creator"],
+    ["🌪️ Переменчивая", "capricious"],
+    ["💛 Немного уставшая", "sad"]
+  ]
+}
+
+];
+
+
+/* ==========================================
+   ПЕРЕМЕННЫЕ
+========================================== */
+
+let selectedAge = "";
+let currentQuestion = 0;
+let lastAnswer = "";
+
+let scores = {
+  wizard: 0,
+  explorer: 0,
+  energizer: 0,
+  creator: 0,
+  capricious: 0,
+  sad: 0
+};
+
+
+/* ==========================================
+   ЭКРАНЫ
+========================================== */
+
+function hideAll() {
+
+  ["start","age","quiz","result"].forEach(id => {
+    document
+      .getElementById(id)
+      .classList.add("hidden");
+  });
+
+}
+
+
+function showAge() {
+
+  hideAll();
+
+  document
+    .getElementById("age")
+    .classList.remove("hidden");
+
+}
+
+
+function chooseAge(age) {
+
+  selectedAge = age;
+
+  hideAll();
+
+  document
+    .getElementById("quiz")
+    .classList.remove("hidden");
+
+  showQuestion();
+
+}
+
+
+/* ==========================================
+   ВОПРОСЫ
+========================================== */
+
+function showQuestion() {
+
+  const item = QUESTIONS[currentQuestion];
+
+  document.getElementById("counter").innerText =
+    "Вопрос " +
+    (currentQuestion + 1) +
+    " из " +
+    QUESTIONS.length;
+
+
+  document.getElementById("question").innerText =
+    item.question;
+
+
+  const progress =
+    ((currentQuestion + 1) /
+    QUESTIONS.length) * 100;
+
+
+  document.getElementById("progress").style.width =
+    progress + "%";
+
+
+  const answers =
+    document.getElementById("answers");
+
+  answers.innerHTML = "";
+
+
+  item.answers.forEach(answer => {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "answer";
+
+    button.innerText = answer[0];
+
+    button.onclick = function() {
+      selectAnswer(answer[1]);
+    };
+
+    answers.appendChild(button);
+
+  });
+
+}
+
+
+function selectAnswer(type) {
+
+  /*
+    Последний вопрос получает 2 балла,
+    потому что тест определяет состояние
+    ребёнка именно сегодня.
+  */
+
+  if (
+    currentQuestion ===
+    QUESTIONS.length - 1
+  ) {
+
+    scores[type] += 2;
+    lastAnswer = type;
+
+  } else {
+
+    scores[type] += 1;
+
+  }
+
+
+  currentQuestion++;
+
+
+  if (
+    currentQuestion <
+    QUESTIONS.length
+  ) {
+
+    showQuestion();
+
+  } else {
+
+    calculateResult();
+
+  }
+
+}
+
+
+/* ==========================================
+   ОПРЕДЕЛЕНИЕ РЕЗУЛЬТАТА
+========================================== */
+
+function calculateResult() {
+
+  const maxScore =
+    Math.max(
+      ...Object.values(scores)
+    );
+
+
+  const winners =
+    Object.keys(scores)
+      .filter(
+        key =>
+          scores[key] === maxScore
+      );
+
+
+  let resultType;
+
+
+  /*
+    При равенстве баллов ориентируемся
+    на ответ о сегодняшнем состоянии.
+  */
+
+  if (
+    winners.includes(lastAnswer)
+  ) {
+
+    resultType = lastAnswer;
+
+  } else {
+
+    resultType = winners[0];
+
+  }
+
+
+  showResult(resultType);
+
+}
+
+
+/* ==========================================
+   РЕЗУЛЬТАТ
+========================================== */
+
+function showResult(type) {
+
+  hideAll();
+
+
+  const result =
+    TYPES[type];
+
+
+  document
+    .getElementById("result")
+    .classList.remove("hidden");
+
+
+  document
+    .getElementById("resultEmoji")
+    .innerText =
+      result.emoji;
+
+
+  document
+    .getElementById("resultTitle")
+    .innerText =
+      "Сегодня у вас " +
+      result.name +
+      "!";
+
+
+  document
+    .getElementById("resultText")
+    .innerText =
+      result.text;
+
+
+  document
+    .getElementById("forecastText")
+    .innerText =
+      result.forecast;
+
+
+  /*
+    Для WhatsApp автоматически
+    формируем сообщение.
+  */
+
+  const message =
+    "Здравствуйте! 🎃\n\n" +
+    "Мы прошли осенний тест " +
+    "детского развивающего центра «Умняшки».\n\n" +
+    "Наш результат — " +
+    result.emoji +
+    " " +
+    result.name +
+    ".\n" +
+    "Возраст ребёнка — " +
+    selectedAge +
+    ".\n\n" +
+    "Хотим получить осенний подарок 🎁";
+
+
+  const whatsappURL =
+    "https://wa.me/" +
+    WHATSAPP_PHONE +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  document
+    .getElementById("whatsapp")
+    .href =
+      whatsappURL;
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+</script>
+
+</body>
+</html>
