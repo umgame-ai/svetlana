@@ -301,6 +301,8 @@ button:hover,
 
   <h1 id="resultTitle"></h1>
 
+  <img id="resultImage" src="" alt="Результат квиза" style="width:100%; max-width:520px; display:block; margin:20px auto; border-radius:24px;">
+
   <div class="result-box">
     <p id="resultText"></p>
   </div>
@@ -393,6 +395,7 @@ const TYPES = {
   wizard: {
     name: "Тыква-волшебник",
     emoji: "✨🎃",
+    image: "Тыквенный маг под осенними звёздами.png",
 
     text:
       "Сегодня вашему ребёнку особенно близок мир фантазии. " +
@@ -782,6 +785,10 @@ function showResult(type) {
       "Сегодня у вас " +
       result.name +
       "!";
+  
+  document
+  .getElementById("resultImage")
+  .src = result.image;
 
 
   document
